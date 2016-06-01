@@ -1,0 +1,121 @@
+
+
+
+# Logfile created on 2016-06-01 18:43:16 +0200 by logger.rb/54362
+RestClient.get "https://rest.globase.com/lists?accept=json&api_key=544b9bc4981ee6adcba01e613e125a25", "Accept"=>"*/*; q=0.5, application/xml", "Accept-Encoding"=>"gzip, deflate"
+# => 200 OK | application/json 144 bytes
+RestClient.get "https://rest.globase.com/lists?accept=json&api_key=544b9bc4981ee6adcba01e613e125a25", "Accept"=>"*/*; q=0.5, application/xml", "Accept-Encoding"=>"gzip, deflate"
+# => 200 OK | application/json 144 bytes
+RestClient.get "https://rest.globase.com/lists?accept=json&api_key=544b9bc4981ee6adcba01e613e125a25", "Accept"=>"*/*; q=0.5, application/xml", "Accept-Encoding"=>"gzip, deflate"
+# => 200 OK | application/json 144 bytes
+
+
+
+RestClient.get "https://rest.globase.com/lists?accept=json&api_key=544b9bc4981ee6adcba01e613e125a25", "Accept"=>"*/*; q=0.5, application/xml", "Accept-Encoding"=>"gzip, deflate"
+# => 200 OK | application/json 144 bytes
+RestClient.get "https://rest.globase.com/lists?accept=json&api_key=544b9bc4981ee6adcba01e613e125a25", "Accept"=>"*/*; q=0.5, application/xml", "Accept-Encoding"=>"gzip, deflate"
+# => 200 OK | application/json 144 bytes
+RestClient.get "https://rest.globase.com/lists?accept=json&api_key=544b9bc4981ee6adcba01e613e125a25", "Accept"=>"*/*; q=0.5, application/xml", "Accept-Encoding"=>"gzip, deflate"
+# => 200 OK | application/json 144 bytes
+RestClient.get "https://rest.globase.com/lists?accept=json&api_key=544b9bc4981ee6adcba01e613e125a25", "Accept"=>"*/*; q=0.5, application/xml", "Accept-Encoding"=>"gzip, deflate"
+# => 200 OK | application/json 144 bytes
+RestClient.get "https://rest.globase.com/lists?accept=json&api_key=544b9bc4981ee6adcba01e613e125a25", "Accept"=>"*/*; q=0.5, application/xml", "Accept-Encoding"=>"gzip, deflate"
+# => 200 OK | application/json 144 bytes
+RestClient.get "https://rest.globase.com/lists?accept=json&api_key=544b9bc4981ee6adcba01e613e125a25", "Accept"=>"*/*; q=0.5, application/xml", "Accept-Encoding"=>"gzip, deflate"
+# => 200 OK | application/json 144 bytes
+
+
+
+
+RestClient.get "https://rest.globase.com/lists?accept=json&api_key=544b9bc4981ee6adcba01e613e125a25", "Accept"=>"*/*; q=0.5, application/xml", "Accept-Encoding"=>"gzip, deflate"
+# => 200 OK | application/json 144 bytes
+RestClient.get "https://rest.globase.com/lists/1?accept=json&api_key=544b9bc4981ee6adcba01e613e125a25", "Accept"=>"*/*; q=0.5, application/xml", "Accept-Encoding"=>"gzip, deflate"
+# => 404 NotFound | text/html 77 bytes
+RestClient.get "https://rest.globase.com/lists?api_key=544b9bc4981ee6adcba01e613e125a25", "Accept"=>"*/*; q=0.5, application/xml", "Accept-Encoding"=>"gzip, deflate", "Headers"=>"{:accept=>:json}"
+# => 200 OK | application/json 144 bytes
+RestClient.get "https://rest.globase.com/lists/1?api_key=544b9bc4981ee6adcba01e613e125a25", "Accept"=>"*/*; q=0.5, application/xml", "Accept-Encoding"=>"gzip, deflate", "Headers"=>"{:accept=>:json}"
+# => 404 NotFound | text/html 61 bytes
+RestClient.get "https://rest.globase.com/lists?api_key=544b9bc4981ee6adcba01e613e125a25", "Accept"=>"*/*; q=0.5, application/xml", "Accept-Encoding"=>"gzip, deflate", "Headers"=>"{:accept=>:json}"
+# => 200 OK | application/json 144 bytes
+RestClient.get "https://rest.globase.com/lists?api_key=544b9bc4981ee6adcba01e613e125a25", "Accept"=>"*/*; q=0.5, application/xml", "Accept-Encoding"=>"gzip, deflate", "Headers"=>"{:accept=>:json}"
+# => 200 OK | application/json 144 bytes
+RestClient.get "https://rest.globase.com/campaigns?api_key=544b9bc4981ee6adcba01e613e125a25", "Accept"=>"*/*; q=0.5, application/xml", "Accept-Encoding"=>"gzip, deflate", "Headers"=>"{:accept=>:json}"
+# => 404 NotFound | text/html 63 bytes
+RestClient.get "https://rest.globase.com/lists?api_key=544b9bc4981ee6adcba01e613e125a25", "Accept"=>"*/*; q=0.5, application/xml", "Accept-Encoding"=>"gzip, deflate", "Headers"=>"{:accept=>:json}"
+# => 200 OK | application/json 144 bytes
+RestClient.get "https://rest.globase.com/lists?api_key=544b9bc4981ee6adcba01e613e125a25", "Accept"=>"*/*; q=0.5, application/xml", "Accept-Encoding"=>"gzip, deflate", "Headers"=>"{:accept=>:json}"
+# => 200 OK | application/json 144 bytes
+RestClient.get "https://rest.globase.com/lists?api_key=544b9bc4981ee6adcba01e613e125a25", "Accept"=>"*/*; q=0.5, application/xml", "Accept-Encoding"=>"gzip, deflate", "Headers"=>"{:accept=>:json}"
+# => 200 OK | application/json 144 bytes
+RestClient.get "https://rest.globase.com/campaigns?api_key=544b9bc4981ee6adcba01e613e125a25", "Accept"=>"*/*; q=0.5, application/xml", "Accept-Encoding"=>"gzip, deflate", "Headers"=>"{:accept=>:json}"
+# => 404 NotFound | text/html 63 bytes
+RestClient.get "https://rest.globase.com/campaigns?api_key=544b9bc4981ee6adcba01e613e125a25", "Accept"=>"*/*; q=0.5, application/xml", "Accept-Encoding"=>"gzip, deflate", "Headers"=>"{:accept=>:json}"
+# => 404 NotFound | text/html 63 bytes
+RestClient.get "https://rest.globase.com/campaigns?api_key=544b9bc4981ee6adcba01e613e125a25", "Accept"=>"*/*; q=0.5, application/xml", "Accept-Encoding"=>"gzip, deflate", "Headers"=>"{:accept=>:json, :content_type=>\"application/json\"}"
+# => 404 NotFound | text/html 63 bytes
+
+
+
+
+
+
+RestClient.get "https://rest.globase.com/lists?api_key=544b9bc4981ee6adcba01e613e125a25", "Accept"=>"*/*; q=0.5, application/xml", "Accept-Encoding"=>"gzip, deflate", "Headers"=>"{:accept=>:json, :content_type=>\"application/json\"}"
+# => 200 OK | application/json 144 bytes
+RestClient.get "https://rest.globase.com/lists?api_key=544b9bc4981ee6adcba01e613e125a25", "Accept"=>"*/*; q=0.5, application/xml", "Accept-Encoding"=>"gzip, deflate", "Headers"=>"{:accept=>:json, :content_type=>\"application/json\"}"
+# => 200 OK | application/json 144 bytes
+RestClient.get "https://rest.globase.com/campaigns?api_key=544b9bc4981ee6adcba01e613e125a25", "Accept"=>"*/*; q=0.5, application/xml", "Accept-Encoding"=>"gzip, deflate", "Headers"=>"{:accept=>:json, :content_type=>\"application/json\"}"
+# => 404 NotFound | text/html 63 bytes
+RestClient.post "https://rest.globase.com/campaigns?api_key=544b9bc4981ee6adcba01e613e125a25", "test=true", "Accept"=>"*/*; q=0.5, application/xml", "Accept-Encoding"=>"gzip, deflate", "Content-Length"=>"9", "Content-Type"=>"application/x-www-form-urlencoded", "Headers"=>"{:accept=>:json, :content_type=>\"application/json\"}"
+# => 500 InternalServerError | application/json 25 bytes
+RestClient.post "https://rest.globase.com/campaigns?api_key=544b9bc4981ee6adcba01e613e125a25", "Campaign[name]=test", "Accept"=>"*/*; q=0.5, application/xml", "Accept-Encoding"=>"gzip, deflate", "Content-Length"=>"19", "Content-Type"=>"application/x-www-form-urlencoded", "Headers"=>"{:accept=>:json, :content_type=>\"application/json\"}"
+# => 500 InternalServerError | application/json 25 bytes
+RestClient.get "https://rest.globase.com/campaigns?api_key=544b9bc4981ee6adcba01e613e125a25", "Accept"=>"*/*; q=0.5, application/xml", "Accept-Encoding"=>"gzip, deflate", "Headers"=>"{:accept=>:json, :content_type=>\"application/json\"}"
+# => 404 NotFound | text/html 63 bytes
+RestClient.get "https://rest.globase.com/campaigns/?api_key=544b9bc4981ee6adcba01e613e125a25", "Accept"=>"*/*; q=0.5, application/xml", "Accept-Encoding"=>"gzip, deflate", "Headers"=>"{:accept=>:json, :content_type=>\"application/json\"}"
+# => 200 OK | application/json 313 bytes
+RestClient.get "https://rest.globase.com/campaigns//1?api_key=544b9bc4981ee6adcba01e613e125a25", "Accept"=>"*/*; q=0.5, application/xml", "Accept-Encoding"=>"gzip, deflate", "Headers"=>"{:accept=>:json, :content_type=>\"application/json\"}"
+# => 404 NotFound | text/html 66 bytes
+RestClient.get "https://rest.globase.com/campaigns/?api_key=544b9bc4981ee6adcba01e613e125a25", "Accept"=>"*/*; q=0.5, application/xml", "Accept-Encoding"=>"gzip, deflate", "Headers"=>"{:accept=>:json, :content_type=>\"application/json\"}"
+# => 200 OK | application/json 313 bytes
+RestClient.get "https://rest.globase.com/campaigns/1?api_key=544b9bc4981ee6adcba01e613e125a25", "Accept"=>"*/*; q=0.5, application/xml", "Accept-Encoding"=>"gzip, deflate", "Headers"=>"{:accept=>:json, :content_type=>\"application/json\"}"
+# => 200 OK | application/json 249 bytes
+RestClient.get "https://rest.globase.com/campaigns/?api_key=544b9bc4981ee6adcba01e613e125a25", "Accept"=>"*/*; q=0.5, application/xml", "Accept-Encoding"=>"gzip, deflate", "Headers"=>"{:accept=>:json, :content_type=>\"application/json\"}"
+RestClient.get "https://rest.globase.com/campaigns/?api_key=544b9bc4981ee6adcba01e613e125a25", "Accept"=>"*/*; q=0.5, application/xml", "Accept-Encoding"=>"gzip, deflate", "Headers"=>"{:accept=>:json, :content_type=>\"application/json\"}"
+RestClient.get "https://rest.globase.com/lists/?api_key=544b9bc4981ee6adcba01e613e125a25", "Accept"=>"*/*; q=0.5, application/xml", "Accept-Encoding"=>"gzip, deflate", "Headers"=>"{:accept=>:json, :content_type=>\"application/json\"}"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# => 200 OK | application/json 144 bytes
+RestClient.get "https://rest.globase.com/lists/?api_key=544b9bc4981ee6adcba01e613e125a25", "Accept"=>"*/*; q=0.5, application/xml", "Accept-Encoding"=>"gzip, deflate", "Headers"=>"{:accept=>:json, :content_type=>\"application/json\"}"
+# => 200 OK | application/json 144 bytes
+RestClient.get "https://rest.globase.com/campaigns/?api_key=544b9bc4981ee6adcba01e613e125a25", "Accept"=>"*/*; q=0.5, application/xml", "Accept-Encoding"=>"gzip, deflate", "Headers"=>"{:accept=>:json, :content_type=>\"application/json\"}"
+# => 200 OK | application/json 313 bytes
+RestClient.put "https://rest.globase.com/campaigns/2?api_key=544b9bc4981ee6adcba01e613e125a25", "name=RHG%20test", "Accept"=>"*/*; q=0.5, application/xml", "Accept-Encoding"=>"gzip, deflate", "Content-Length"=>"15", "Content-Type"=>"application/x-www-form-urlencoded", "Headers"=>"{:accept=>:json, :content_type=>\"application/json\"}"
+# => 500 InternalServerError | application/json 25 bytes
+RestClient.put "https://rest.globase.com/campaigns/2?api_key=544b9bc4981ee6adcba01e613e125a25", "{\"name\":\"RHG test\"}", "Accept"=>"*/*; q=0.5, application/xml", "Accept-Encoding"=>"gzip, deflate", "Content-Length"=>"19", "Headers"=>"{:accept=>:json, :content_type=>\"application/json\"}"
+# => 500 InternalServerError | application/json 25 bytes
+RestClient.put "https://rest.globase.com/campaigns/2?api_key=544b9bc4981ee6adcba01e613e125a25", "{\"name\":\"RHG test\"}", "Accept"=>"*/*; q=0.5, application/xml", "Accept-Encoding"=>"gzip, deflate", "Content-Length"=>"19", "Headers"=>"{:accept=>:json, :content_type=>\"application/json\"}"
+# => 500 InternalServerError | application/json 25 bytes
+RestClient.put "https://rest.globase.com/campaigns/2?api_key=544b9bc4981ee6adcba01e613e125a25", "{\"Campaign\":{\"name\":\"RHG test\"}}", "Accept"=>"*/*; q=0.5, application/xml", "Accept-Encoding"=>"gzip, deflate", "Content-Length"=>"32", "Headers"=>"{:accept=>:json, :content_type=>\"application/json\"}"
+# => 500 InternalServerError | application/json 25 bytes
+RestClient.get "https://rest.globase.com/campaigns/2?api_key=544b9bc4981ee6adcba01e613e125a25", "Accept"=>"*/*; q=0.5, application/xml", "Accept-Encoding"=>"gzip, deflate", "Headers"=>"{:accept=>:json, :content_type=>\"application/json\"}"
+# => 200 OK | application/json 249 bytes
+RestClient.put "https://rest.globase.com/campaigns/2?api_key=544b9bc4981ee6adcba01e613e125a25", "{\"name\":\"RHG test\"}", "Accept"=>"*/*; q=0.5, application/xml", "Accept-Encoding"=>"gzip, deflate", "Content-Length"=>"19", "Headers"=>"{:accept=>:json, :content_type=>\"application/json\"}"
+# => 500 InternalServerError | application/json 25 bytes
+RestClient.put "https://rest.globase.com/campaigns/2?api_key=544b9bc4981ee6adcba01e613e125a25", "{\"name\":\"RHG test\"}", "Accept"=>"*/*; q=0.5, application/xml", "Accept-Encoding"=>"gzip, deflate", "Content-Length"=>"19", "Headers"=>"{:accept=>:json, :content_type=>\"application/json\"}"
+# => 500 InternalServerError | application/json 25 bytes
+RestClient.put "https://rest.globase.com/campaigns/2?api_key=544b9bc4981ee6adcba01e613e125a25", "{\"name\":\"RHG test\"}", "Accept"=>"*/*; q=0.5, application/xml", "Accept-Encoding"=>"gzip, deflate", "Content-Length"=>"19", "Headers"=>"{:accept=>:json, :content_type=>\"application/json\"}"
+# => 500 InternalServerError | application/json 25 bytes
+RestClient.put "https://rest.globase.com/campaigns/2?api_key=544b9bc4981ee6adcba01e613e125a25", "{\"name\":\"RHG test\"}", "Accept"=>"*/*; q=0.5, application/xml", "Accept-Encoding"=>"gzip, deflate", "Content-Length"=>"19", "Headers"=>"{:accept=>:json, :content_type=>\"application/json\"}"
+# => 500 InternalServerError | application/json 25 bytes

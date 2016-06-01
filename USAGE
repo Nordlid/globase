@@ -1,0 +1,12 @@
+************************************************************
+
+Thank you for installing Globase
+
+Once you have installed this gem
+include it into your app Gemfile with:
+gem 'globase'
+
+Then from your app root type:
+rails generate globase:install
+
+************************************************************
