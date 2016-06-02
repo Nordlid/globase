@@ -20,11 +20,11 @@ module Globase
       end
 
       def mandatory_fields_create
-        [:name, :list, :type]
+        [ :name, :list, :type, :status, :ownerId ]
       end
 
       def mandatory_fields_update
-        [:name, :list, :type]
+        [ :name, :list, :type, :status, :ownerId ]
       end
 
     end
