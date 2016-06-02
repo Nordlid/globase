@@ -36,13 +36,29 @@ module Globase
         send_request(:get, params)
       end
 
-      def debug(response)
+      def  debug_request(request_resource, method, params, data)
         if Globase.config.debug
+          puts "\n#{'-'*80}"
+          puts "  Resquest"
+          puts "#{'-'*80}"
+          puts " resource: #{request_resource}"
+          puts " method: #{method}"
+          puts " params: #{params.inspect}"
+          puts " data: #{data.inspect}"
+          puts " validation_errors: #{validate_data(method, data).inspect}"
+          puts "#{'-'*80}\n\n"
+        end
+      end
+
+      def debug_response(response)
+        if Globase.config.debug
+          puts "\n#{'*'*80}"
+          puts "  Response"
           puts "#{'*'*80}"
-          puts "response.code:    #{response.code}"
-          puts "response.body:    #{response.body}"
-          puts "response.headers: #{response.headers.inspect}"
-          puts "#{'*'*80}"
+          puts " code:    #{response.code}"
+          puts " headers: #{response.headers.inspect}"
+          puts " body:    #{response.body}"
+          puts "#{'*'*80}\n\n"
          end
       end
 
@@ -57,6 +73,7 @@ module Globase
 
       def validate_data(method, data)
         errors = []
+        return errors if data.nil?
         data_fields = data.keys
         case method
         when :put
@@ -88,6 +105,7 @@ module Globase
           else
             request_resource = resource(params)["/#{id}"]
           end
+          debug_request(request_resource, method, params, data)
 
           if data.nil?
             response = request_resource.send(method)
@@ -101,7 +119,7 @@ module Globase
             end
           end
 
-          debug(response)
+          debug_response(response)
           parse(response.body)
         rescue => e
           if e.respond_to?(:response)
@@ -132,10 +150,8 @@ module Globase
       def headers(params = {})
         {
           params: default_params.merge(params),
-          headers: {
-            accept: :json,
-            :content_type => 'application/json'
-          }
+          content_type: :json,
+          accept: :json,
         }
       end
 
