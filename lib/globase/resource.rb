@@ -36,10 +36,6 @@ module Globase
         send_request(:get, params)
       end
 
-      def url
-        "#{base_url}/"
-      end
-
       def debug(response)
         if Globase.config.debug
           puts "#{'*'*80}"
@@ -49,6 +45,81 @@ module Globase
           puts "#{'*'*80}"
          end
       end
+
+      def resource(params = {})
+        @resource ||= RestClient::Resource.new( base_url, headers: headers(params), timeout: timeout )
+      end
+
+
+      def url
+        "#{base_url}/"
+      end
+
+      def validate_data(method, data)
+        errors = []
+        data_fields = data.keys
+        case method
+        when :put
+          mandatory_fields = mandatory_fields_update
+        when :post
+          mandatory_fields = mandatory_fields_create
+        end
+
+        matching_fields = data_fields & mandatory_fields
+        missing_fileds = mandatory_fields - matching_fields
+
+        errors << "Mandatory fields missing: #{missing_fileds.join(', ')}" if missing_fileds.any?
+
+        errors
+      end
+
+      def mandatory_fields_create
+        []
+      end
+
+      def mandatory_fields_update
+        []
+      end
+
+      def send_request(method = :get, params = {}, id = nil, data = nil)
+        begin
+          if id.nil?
+            request_resource = resource(params)["/"]
+          else
+            request_resource = resource(params)["/#{id}"]
+          end
+
+          if data.nil?
+            response = request_resource.send(method)
+          else
+            validation_errors = validate_data(method, data)
+            if validation_errors.empty?
+              response = request_resource.send(method, data.to_json)
+            else
+              validation_error_messages = validation_errors.join("\n - ")
+              raise "Validation errors:\n - #{validation_error_messages}"
+            end
+          end
+
+          debug(response)
+          parse(response.body)
+        rescue => e
+          if e.respond_to?(:response)
+            e.response
+          else
+            raise e
+          end
+        end
+      end
+
+      def collection_name
+        self.name.demodulize.downcase.pluralize.downcase
+      end
+
+      def base_url
+        "#{host_url}/#{collection_name}"
+      end
+
 
       def parse(body)
         JSON.parse(body)
@@ -72,43 +143,6 @@ module Globase
         {
           api_key: Globase.config.api_key
         }
-      end
-
-      def resource(params = {})
-        @resource ||= RestClient::Resource.new( base_url, headers: headers(params), timeout: timeout )
-      end
-
-      def send_request(method = :get, params = {}, id = nil, data = {})
-        begin
-          if id.nil?
-            request_resource = resource(params)["/"]
-          else
-            request_resource = resource(params)["/#{id}"]
-          end
-
-          if ( data.nil? || data.empty? )
-            response = request_resource.send(method)
-          else
-            response = request_resource.send(method, data.to_json)
-          end
-
-          debug(response)
-          parse(response.body)
-        rescue => e
-          if e.respond_to?(:response)
-            e.response
-          else
-            raise e
-          end
-        end
-      end
-
-      def collection_name
-        self.name.demodulize.downcase.pluralize.downcase
-      end
-
-      def base_url
-        "#{host_url}/#{collection_name}"
       end
 
       def host_url

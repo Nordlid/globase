@@ -19,6 +19,14 @@ module Globase
         super(params)
       end
 
+      def mandatory_fields_create
+        [:name, :list, :type]
+      end
+
+      def mandatory_fields_update
+        [:name, :list, :type]
+      end
+
     end
 
   end

@@ -25,7 +25,7 @@ module Globase
 
     # Configuration defaults
     def initialize
-      @api_key                        = nil || '544b9bc4981ee6adcba01e613e125a25'
+      @api_key                        = nil
       @timeout                        = 30
       @debug                          = true
       @host                           = 'rest.globase.com'
