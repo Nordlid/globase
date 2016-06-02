@@ -1,8 +1,8 @@
 module Globase
   class Campaign < Resource
 
-    def update(data, params = {})
-      super(data, params = {})
+    def update(params = {})
+      super(params = {})
     end
 
     def delete(params = {})
@@ -17,6 +17,10 @@ module Globase
 
       def all(params = {})
         super(params)
+      end
+
+      def fields
+        super | [:id, :list, :name, :type, :status, :sysCreated, :sysChanged, :ownerId, :ownerUsername, :ownerEmail, :spanCounts, :tags, :messages ]
       end
 
       def mandatory_fields_create

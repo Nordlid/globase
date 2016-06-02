@@ -4,9 +4,11 @@ require 'rest-client'
 require 'active_support/inflector'
 require 'active_support/core_ext/module/introspection'
 require 'globase/configuration'
-require 'globase/resource'
-require 'globase/list'
-require 'globase/campaign'
+
+%w(resource list campaign).each do |c|
+  require "globase/#{c}"
+  eval "Globase::#{c.titlecase}.set_fields"
+end
 
 module Globase
 

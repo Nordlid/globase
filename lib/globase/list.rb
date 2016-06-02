@@ -23,6 +23,10 @@ module Globase
         super(params)
       end
 
+      def fields
+        super | [:id, :name, :description, :profileCount, :sysCreated, :sysChanged]
+      end
+
     end
 
   end

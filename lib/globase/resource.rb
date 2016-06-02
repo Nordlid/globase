@@ -2,19 +2,17 @@ module Globase
   class Resource
     format 'json'
 
-    def initialize(id)
-      @id = id
+    def initialize(attributes = {})
+      attributes.each do |k,v|
+        send("#{k}=", v)
+      end
     end
 
-    def id
-      @id
+    def reload
+      self.class.find(id)
     end
 
-    def show(params = {})
-      self.class.send_request(:get, params, id)
-    end
-
-    def update(data, params = {})
+    def update(params = {})
       self.class.send_request(:put, params, id, data)
     end
 
@@ -26,7 +24,27 @@ module Globase
       "#{self.class.base_url}/#{id}"
     end
 
+    def data
+      Hash[self.class.fields.collect{|a| [a, send(a) ]}]
+    end
+
     class << self
+
+      def fields
+        [:id]
+      end
+
+      def set_fields
+        puts "set_fields: #{fields.inspect}"
+        fields.each do |a|
+          attr_accessor a
+        end
+      end
+
+      def find(id, params = {})
+        attributes = send_request(:get, params, id)
+        new(attributes)
+      end
 
       def create(data, params = {})
         send_request(:post, params, nil, data)
