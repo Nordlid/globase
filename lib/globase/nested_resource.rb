@@ -41,10 +41,6 @@ module Globase
         r
       end
 
-      def parent_resource_class
-        Globase::List
-      end
-
       def fields_mandatory_initialize
         [:parent]
       end
@@ -54,7 +50,6 @@ module Globase
       end
 
       def base_url(parent)
-        puts "Globase::NestedResource"
         "#{parent.url}/#{collection_name}"
       end
 

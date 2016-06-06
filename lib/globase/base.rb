@@ -39,7 +39,6 @@ module Globase
       end
 
       def set_fields
-        puts "set_fields: #{fields.inspect}"
         fields.each do |a|
           attr_accessor a
         end
