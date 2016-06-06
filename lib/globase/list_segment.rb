@@ -7,6 +7,7 @@ module Globase
         send_request(parent, :get, params).collect do |d|
           r = new( d.merge({ parent: parent }) )
           r.persisted = true
+          r
         end
       end
 
@@ -15,7 +16,7 @@ module Globase
       end
 
       def fields
-        @fields = super
+        @fields = super | [:name, :description, :profileCount, :sysCreated, :sysChanged]
       end
 
     end
