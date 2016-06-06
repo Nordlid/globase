@@ -1,127 +1,59 @@
 module Globase
-  class Resource
-    format 'json'
-
-    def initialize(attributes = {})
-      attributes.each do |k,v|
-        send("#{k}=", v)
-      end
-    end
+  class Resource < Base
 
     def reload
       self.class.find(id)
-    end
-
-    def update(params = {})
-      self.class.send_request(:put, params, id, data)
     end
 
     def delete(params = {})
       self.class.send_request(:delete, params, id)
     end
 
-    def url
-      "#{self.class.base_url}/#{id}"
+    def create(data, params = {})
+      if persisted
+        update(params)
+      else
+        response_data = self.class.send_request(:post, params, nil, data)
+        id = response_data[:id]
+        persisted = true
+      end
     end
 
-    def data
-      Hash[self.class.fields.collect{|a| [a, send(a) ]}]
+    def update(params = {})
+      if persisted
+        self.class.send_request(:put, params, id, data)
+        persisted = true
+      else
+        create(data, params = {})
+      end
     end
 
     class << self
 
-      def fields
-        [:id]
-      end
-
-      def set_fields
-        puts "set_fields: #{fields.inspect}"
-        fields.each do |a|
-          attr_accessor a
-        end
-      end
-
       def find(id, params = {})
-        attributes = send_request(:get, params, id)
-        new(attributes)
-      end
-
-      def create(data, params = {})
-        send_request(:post, params, nil, data)
+        r = new( send_request(:get, params, id) )
+        r.persisted = true
+        r
       end
 
       def all(params = {})
-        send_request(:get, params)
-      end
-
-      def  debug_request(request_resource, method, params, data)
-        if Globase.config.debug
-          puts "\n#{'-'*80}"
-          puts "  Resquest"
-          puts "#{'-'*80}"
-          puts " resource: #{request_resource}"
-          puts " method: #{method}"
-          puts " params: #{params.inspect}"
-          puts " data: #{data.inspect}"
-          puts " validation_errors: #{validate_data(method, data).inspect}"
-          puts "#{'-'*80}\n\n"
+        send_request(:get, params).collect do |d|
+          r = new(d)
+          r.persisted = true
+          r
         end
-      end
-
-      def debug_response(response)
-        if Globase.config.debug
-          puts "\n#{'*'*80}"
-          puts "  Response"
-          puts "#{'*'*80}"
-          puts " code:    #{response.code}"
-          puts " headers: #{response.headers.inspect}"
-          puts " body:    #{response.body}"
-          puts "#{'*'*80}\n\n"
-         end
       end
 
       def resource(params = {})
         @resource ||= RestClient::Resource.new( base_url, headers: headers(params), timeout: timeout )
       end
 
-
-      def url
-        "#{base_url}/"
-      end
-
-      def validate_data(method, data)
-        errors = []
-        return errors if data.nil?
-        data_fields = data.keys
-        case method
-        when :put
-          mandatory_fields = mandatory_fields_update
-        when :post
-          mandatory_fields = mandatory_fields_create
-        end
-
-        matching_fields = data_fields & mandatory_fields
-        missing_fileds = mandatory_fields - matching_fields
-
-        errors << "Mandatory fields missing: #{missing_fileds.join(', ')}" if missing_fileds.any?
-
-        errors
-      end
-
-      def mandatory_fields_create
-        []
-      end
-
-      def mandatory_fields_update
-        []
-      end
-
-      def send_request(method = :get, params = {}, id = nil, data = nil)
-        begin
-          if id.nil?
+      def send_request(method = :get, params = {}, relative_path = nil, data = nil)
+        #begin
+          if relative_path.nil? || relative_path.to_s.strip.empty?
             request_resource = resource(params)["/"]
           else
-            request_resource = resource(params)["/#{id}"]
+            request_resource = resource(params)["/#{relative_path}"]
           end
           debug_request(request_resource, method, params, data)
 
@@ -139,60 +71,13 @@ module Globase
 
           debug_response(response)
           parse(response.body)
-        rescue => e
-          if e.respond_to?(:response)
-            e.response
-          else
-            raise e
-          end
-        end
-      end
-
-      def collection_name
-        self.name.demodulize.downcase.pluralize.downcase
-      end
-
-      def base_url
-        "#{host_url}/#{collection_name}"
-      end
-
-
-      def parse(body)
-        JSON.parse(body)
-      end
-
-      def timeout
-        Globase.config.timeout
-      end
-
-      def headers(params = {})
-        {
-          params: default_params.merge(params),
-          content_type: :json,
-          accept: :json,
-        }
-      end
-
-      def default_params
-        {
-          api_key: Globase.config.api_key
-        }
-      end
-
-      def host_url
-        "#{host_protocol}://#{host}:#{host_port}"
-      end
-
-      def host
-        Globase.config.host
-      end
-
-      def host_port
-        Globase.config.host_port
-      end
-
-      def host_protocol
-        Globase.config.host_protocol
+        #rescue => e
+        #  if e.respond_to?(:response)
+        #    e.response
+        #  else
+        #    raise e
+        #  end
+        #end
       end
 
     end

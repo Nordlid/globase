@@ -1,12 +1,26 @@
 module Globase
   class Campaign < Resource
 
+    def user=(value)
+      @ownerId = value
+    end
+
     def update(params = {})
       super(params = {})
     end
 
     def delete(params = {})
       raise NoMethodError
+    end
+
+    #  send_request(method = :get, params = {}, relative_path = nil, data = nil)
+
+    def add_profile(list_profile, launchOptions = { data: nil }, params = {})
+      self.class.send_request(:post, params, "#{id}/addProfile/#{list_profile.id}", launchOptions)
+    end
+
+    def add_profiles(list_profile_ids, params = {})
+      self.class.send_request(:post, params, "#{id}/addProfiles", { profiles: list_profile_ids })
     end
 
     class << self
@@ -20,7 +34,7 @@ module Globase
       end
 
       def fields
-        super | [:id, :list, :name, :type, :status, :sysCreated, :sysChanged, :ownerId, :ownerUsername, :ownerEmail, :spanCounts, :tags, :messages ]
+        @fields = super | [:id, :list, :name, :type, :status, :sysCreated, :sysChanged, :ownerId, :ownerUsername, :ownerEmail, :spanCounts, :tags, :messages ]
       end
 
       def mandatory_fields_create

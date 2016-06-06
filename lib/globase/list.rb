@@ -13,10 +13,26 @@ module Globase
       raise NoMethodError
     end
 
+    def profile(id, params = {})
+      ListProfile.find(self, id, params)
+    end
+
+    def schema(params = {})
+      @schema ||= ListSchema.get(self, params)
+    end
+
+    def segments(params = {})
+      @segments ||= ListSegment.all(self, params)
+    end
+
     class << self
 
       def create(data, params = {})
         raise NoMethodError
+      end
+
+      def find(id, params = {})
+        all.select{|l| l.id == id.to_i }.first
       end
 
       def all(params = {})
@@ -24,7 +40,7 @@ module Globase
       end
 
       def fields
-        super | [:id, :name, :description, :profileCount, :sysCreated, :sysChanged]
+        @fields = super | [:id, :name, :description, :profileCount, :sysCreated, :sysChanged]
       end
 
     end
