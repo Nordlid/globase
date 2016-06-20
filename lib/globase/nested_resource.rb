@@ -9,20 +9,22 @@ module Globase
       self.class.send_request(parent, :delete, params, id)
     end
 
-    def create(data, params = {})
+    def create(params = {})
       if persisted
         update(params)
       else
         response_data = self.class.send_request(parent, :post, params, nil, data)
         id = response_data[:id]
         persisted = true
+        response_data
       end
     end
 
     def update(params = {})
       if persisted
-        self.class.send_request(parent, :put, params, id, data)
+        response_data = self.class.send_request(parent, :put, params, id, data)
         persisted = true
+        response_data
       else
         create(data, params = {})
       end

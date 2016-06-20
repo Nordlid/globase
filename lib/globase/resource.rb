@@ -16,13 +16,15 @@ module Globase
         response_data = self.class.send_request(:post, params, nil, data)
         id = response_data[:id]
         persisted = true
+        response_data
       end
     end
 
     def update(params = {})
       if persisted
-        self.class.send_request(:put, params, id, data)
+        response_data = self.class.send_request(:put, params, id, data)
         persisted = true
+        response_data
       else
         create(data, params = {})
       end

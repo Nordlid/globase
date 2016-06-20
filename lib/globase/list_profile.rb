@@ -3,8 +3,9 @@ module Globase
 
     def update(params = {})
       if persisted
-        self.class.send_request(parent, :put, params, nil, data)
+        response_data = self.class.send_request(parent, :put, params, nil, data)
         persisted = true
+        response_data
       else
         create(data, params = {})
       end

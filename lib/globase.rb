@@ -5,7 +5,7 @@ require 'active_support/inflector'
 require 'active_support/core_ext/module/introspection'
 require 'globase/configuration'
 
-%w(base resource nested_resource template list campaign list_profile list_schema list_segment ).each do |c|
+%w(base resource nested_resource template list campaign list_profile list_schema list_segment list_profiles_search ).each do |c|
   require "globase/#{c}"
   eval "Globase::#{c.camelcase}.set_fields"
 end

@@ -17,6 +17,10 @@ module Globase
       ListProfile.find(self, id, params)
     end
 
+    def profiles_search(criteria = {}, expand = nil, force_deferred = false, params = {})
+      ListProfilesSearch.search(self, criteria, expand, force_deferred, params)
+    end
+
     def schema(params = {})
       @schema ||= ListSchema.get(self, params)
     end
