@@ -13,8 +13,6 @@ module Globase
       raise NoMethodError
     end
 
-    #  send_request(method = :get, params = {}, relative_path = nil, data = nil)
-
     def add_profile(list_profile, launchOptions = { data: nil }, params = {})
       self.class.send_request(:post, params, "#{id}/addProfile/#{list_profile.id}", launchOptions)
     end
@@ -34,7 +32,7 @@ module Globase
       end
 
       def fields
-        @fields = super | [:id, :list, :name, :type, :status, :sysCreated, :sysChanged, :ownerId, :ownerUsername, :ownerEmail, :spanCounts, :tags, :messages ]
+        @fields = super | [:id, :list, :name, :type, :status, :sysCreated, :sysChanged, :ownerId, :ownerUsername, :ownerEmail, :spanCounts, :tags, :messages, :duplicateEmail ]
       end
 
       def mandatory_fields_create
