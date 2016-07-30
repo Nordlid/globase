@@ -60,7 +60,7 @@ module Globase
         fields_matching = fields_data & fields_mandatory
         fileds_missing = fields_mandatory - fields_matching
 
-        errors << "Mandatory fields missing: #{fileds_missing.join(', ')}" if fileds_missing.any?
+        errors << "Mandatory fields missing: #{fileds_missing.join(', ')} for #{self}" if fileds_missing.any?
 
         errors
       end

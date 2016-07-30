@@ -14,7 +14,12 @@ module Globase
     end
 
     def add_profile(list_profile, launchOptions = { data: nil }, params = {})
-      self.class.send_request(:post, params, "#{id}/addProfile/#{list_profile.id}", launchOptions)
+      if list_profile.is_a?(Numeric)
+        profile_id = list_profile
+      else
+        profile_id = list_profile.id
+      end
+      self.class.send_request(:post, params, "#{id}/addProfile/#{profile_id}", launchOptions)
     end
 
     def add_profiles(list_profile_ids, params = {})
