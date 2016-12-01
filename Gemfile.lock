@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    globase (0.0.2)
+    globase (0.0.3)
       activesupport
       oj (>= 2.14.0)
       oj_mimic_json
