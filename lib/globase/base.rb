@@ -94,7 +94,8 @@ module Globase
       end
 
       def parse(body)
-        JSON.parse(body)
+        return unless body.present?
+        JSON.parse(body.to_s.force_encoding("UTF-8"))
       end
 
       def timeout
@@ -152,7 +153,8 @@ module Globase
           puts "#{'*'*80}"
           puts " code:    #{response.code}"
           puts " headers: #{response.headers.inspect}"
-          puts " body:    #{response.body}"
+          puts " body encoding: #{response.body.to_s.encoding}"
+          puts " body:    #{response.body.to_s.force_encoding("UTF-8")}"
           puts "#{'*'*80}\n"
          end
       end
